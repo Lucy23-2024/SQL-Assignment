@@ -109,3 +109,10 @@ FROM dataanalytics.international_debt_with_missing_values
 WHERE indicator_name IS NOT NULL AND debt IS NOT NULL
 GROUP BY debt_category
 ORDER BY total_debt DESC;
+
+ --- Identify any other key debt trends and summarize your findings.
+select country_name, sum(debt) as total_debt
+from dataanalytics.international_debt_with_missing_values
+group by country_name
+order by total_debt desc
+limit 5;	
